@@ -1,0 +1,192 @@
+$sarala: 'Sarala', sans-serif;
+$righteous: 'Righteous', cursive;
+
+$menu-item: #fff2e7;
+$text: #ecd6c4;
+$primary-color: #937759;
+$secondary-color: #ae7777;
+$btn: #2f2325;
+
+$spacing: 48px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+@mixin flex($align: stretch, $justify: stretch, $direction: row) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+body {
+  font-family: $sarala;
+  font-size: 100%;
+
+  background: linear-gradient(38deg, $primary-color 17%, $secondary-color 86%);
+}
+
+/* HEADER */
+.header {
+  @include flex(center, space-around);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  padding: 24px 24px 0; /* Importante para não ficar grudando no final da página quando ficar pequeno */
+}
+
+.header-image {
+  height: 72px; /* Definir valor da imagem */
+}
+
+.header-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.menu-item {
+  color: $menu-item;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+
+  transition: all 600ms ease;
+}
+
+.menu-item:hover {
+  color: rgba($menu-item, 0.5);
+}
+
+/* CONTENT */
+main {
+  border-top: 0.4px solid $menu-item;
+  border-bottom: 0.4px solid $menu-item;
+
+  margin: $spacing 0;
+}
+
+.content {
+  @include flex(
+    center,
+    space-around
+  ); /* Está ajustando a disposição dos itens */
+
+  flex-wrap: wrap;
+}
+
+.content-primary {
+  @include flex(null, null, column);
+  gap: 1rem;
+}
+
+.primary-title {
+  font-family: $righteous;
+  font-weight: 400;
+  font-size: 64px;
+  color: $menu-item;
+}
+
+.primary-description {
+  font-weight: 400;
+  font-size: 24px;
+  color: $text;
+}
+
+.primary-btn {
+  background-color: $menu-item;
+
+  width: 185px; /* Definindo largura do botão */
+  height: 70px; /* Definindo altura do botão */
+
+  border: none;
+  border-radius: 20px;
+
+  color: $btn;
+  font-weight: 400;
+  font-size: 1.5rem;
+
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.primary-btn:hover {
+  background-color: rgba(236, 214, 196, 0.95);
+}
+
+.context-aux {
+  height: 430px; /* Definir altura da imagem */
+}
+
+/* CHARACTERISTICS */
+.characteristics {
+  @include flex(center, null, column);
+  gap: 1.5rem;
+
+  margin-top: $spacing; /* Espaçamento da outra seção */
+  padding: 0 $spacing;
+}
+
+.characteristics-title {
+  border-top: 0.4px solid $menu-item; /* Border colocado no texto */
+  padding-top: $spacing;
+
+  font-size: 1.5rem;
+  color: $menu-item;
+  font-weight: 400;
+  font-family: $righteous;
+
+  margin-bottom: 16px; /* Distanciamento adicional além do GAP */
+}
+
+.characteristics-paragraph {
+  font-weight: 300;
+  font-size: 18px;
+  color: $text;
+}
+
+.characteristics-paragraph:last-child {
+  margin-bottom: $spacing;
+}
+
+/* FOOTER */
+.footer {
+  margin: $spacing 0;
+}
+
+.footer-image {
+  height: 48px; /* Definir o tamanho da imagem */
+
+  /* Centralizando elemento único */
+  display: block;
+  margin: auto;
+}
+
+@media screen and (max-width: 924px) {
+  $spaccing: 24px;
+
+  main {
+    border-top: 0.4px solid $menu-item;
+    border-bottom: 0.4px solid $menu-item;
+
+    margin: $spacing 0;
+  }
+
+  .content {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .content .content-primary {
+    order: 2;
+    align-items: center;
+
+    margin-top: $spacing;
+  }
+
+  .content .content-aux {
+    order: -2;
+  }
+}
